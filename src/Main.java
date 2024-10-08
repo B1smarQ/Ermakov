@@ -1,18 +1,19 @@
 public class Main {
     public static void main(String[] args){
-        PolyLine line = new PolyLine(new Point2D(3,4), new Point2D(5,8), new Point2D(9, 76));
-        System.out.println(line);
+        Person Lev = new Person("Lev", 170);
+        Person Serg = new Person(new Name.NameBuilder().setFirstName("Sergey").setSurname("Pushkin").create(),Lev,168);
+        Person Alex = new Person("Alexander",Serg,167);
+        System.out.println(Lev);
+        System.out.println(Serg);
+        System.out.println(Alex);
 
-        System.out.println(new Person("Jonathan", "Joestar"));
+        Cat barsik = new Cat("barsik");
+        barsik.MeowN(10);
 
-        House house = new House(7);
-        System.out.println(house);
+        Student student = new Student("Mohammed",5,5,5,2);
+        System.out.println(student.toGrades());
 
-        Time time = new Time(40,166);
-        System.out.println(time);
-
-        Student student = new Student("Allah");
-
-        System.out.println(student);
+        Square square = new Square(new Point2D(5,5),5);
+        System.out.println(square);
     }
 }
