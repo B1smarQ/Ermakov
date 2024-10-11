@@ -5,11 +5,14 @@ public class City {
     private String Name;
 
     private void addWay(Way way){
+        if(ways.stream().anyMatch(x->x.getCityTo() == way.getCityTo())) throw new Stone("Way already exists");
         ways.add(way);
     }
 
     private void addWay(Way... way){
-        ways.addAll(List.of(way));
+        for (Way x:way){
+            addWay(x);
+        }
     }
 
     public List<Way> getWays() {
