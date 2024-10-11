@@ -1,6 +1,6 @@
 public class Pistol {
     private int bullets;
-    private int maxBullets;
+    private final int maxBullets;
     public Pistol(int bullets, int maxBullets) {
         if(bullets>maxBullets) throw new Stone("womp womp");
         this.bullets = bullets;

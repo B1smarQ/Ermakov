@@ -11,17 +11,17 @@ public class Student {
         if(Arrays.stream(grades).anyMatch(x->x<2||x>5))throw new Stone("Grades must be [2,5]");
         this.grades = Arrays.asList(grades);
     }
-    private float calculateGrades(){
-        float result = 0;
-        for(Integer i:grades){
-            result+=i;
-        }
-        return result/grades.size();
+    private double calculateGrades(){
+        return this.grades.stream().mapToInt(x->x).average().orElse(0);
+    }
+    private void addGrades(Integer... grades){
+        if(Arrays.stream(grades).anyMatch(x->x<2 || x>5)) throw new Stone("Grades must be [2,5]");
+        this.grades.addAll(List.of(grades));
     }
 
     public String toGrades(){
         StringBuilder output = new StringBuilder("grades: ");
-        float res = calculateGrades();
+        double res = calculateGrades();
         for (int i:grades){
             output.append(i).append(" ");
         }
