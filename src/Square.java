@@ -1,13 +1,22 @@
 public class Square {
     private final Point2D topLeftPoint;
-    private final int sideLength;
+    private  int sideLength;
 
     public Square(Point2D topLeftPoint, int sideLength) {
-        if(sideLength<=0) throw new IllegalArgumentException("Side must be larger than 0");
+        if(sideLength<=0) throw new Stone("Side must be larger than 0");
         this.topLeftPoint = topLeftPoint;
         this.sideLength = sideLength;
 
 
+    }
+
+    public void setSideLength(int sideLength) {
+        if(sideLength<=0) throw new Stone("Side must be larger than 0");
+        this.sideLength = sideLength;
+    }
+
+    public int getSideLength() {
+        return sideLength;
     }
 
     public PolyLine getSquare(){

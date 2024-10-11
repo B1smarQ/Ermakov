@@ -8,6 +8,7 @@ public class Student {
 
     public Student(String name, Integer... grades) {
         this.name = name;
+        if(Arrays.stream(grades).anyMatch(x->x<2||x>5))throw new Stone("Grades must be [2,5]");
         this.grades = Arrays.asList(grades);
     }
     private float calculateGrades(){

@@ -15,5 +15,10 @@ public class Main {
 
         Square square = new Square(new Point2D(5,5),5);
         System.out.println(square);
+
+        Fraction frac = new Fraction(5,7);
+        Fraction result = frac.add(new Fraction(2,7)).multiply(new Fraction(2,2)).divide(new Fraction(3,3)).add(new Fraction(-1,2));
+
+        System.out.println(result);
     }
 }

@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Name {
     private String firstName;
     private String surname = "";
@@ -8,6 +11,9 @@ public class Name {
         this.surname = surname;
         this.lastName = lastName;
     }
+
+
+
 
     public String getFirstName() {
         return firstName;
@@ -52,6 +58,8 @@ public class Name {
         }
 
         public Name create(){
+            List<String> names = new ArrayList<>(List.of(new String[]{firstName, surname, lastName}));
+            if(names.stream().allMatch(x->x==null))throw new Stone("Name can't be empty");
             return new Name(firstName,surname,lastName);
         }
     }

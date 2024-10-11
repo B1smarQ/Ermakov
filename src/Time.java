@@ -1,38 +1,28 @@
 import java.util.Arrays;
 
 public class Time {
-    private int sec,min,hrs;
+    private int sec,min,hrs,totalSec = 0;
 
     public Time(int sec, int min, int hrs) {
         this.sec = sec;
         this.min = min;
         this.hrs = hrs;
+        totalSec += sec + min*60 + hrs*3600;
+        if(totalSec > 3600*24) throw new Stone("time can't be more than 24 hrs");
     }
 
     public Time(int sec, int min) {
-        this.sec = sec;
-        this.min = min;
+        this(sec,min,0);
     }
 
     public Time(int sec) {
-        this.sec = sec;
+        this(sec,0);
     }
 
     private int[] calculateTime(){
-        int tmp = 0;
-        if(this.hrs != 0){
-            tmp+=hrs*3600;
-
-        }
-        if(this.min!=0){
-            tmp+=min*60;
-        }
-        if(this.sec!=0){
-            tmp+=sec;
-        }
 
         int tmpSec = 0,tmpMin = 0,tmpHrs = 0;
-
+        int tmp = totalSec;
         tmpHrs+=tmp/3600;
         tmp-=tmpHrs*3600;
 
