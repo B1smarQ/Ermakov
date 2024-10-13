@@ -15,6 +15,7 @@ public class Person {
     }
 
     public Person(Name name, Person father, int height) {
+        if(height>500) throw new Stone("Height can't be more than 500");
         this.name = name;
         this.father = father;
         this.height = height;
@@ -32,6 +33,17 @@ public class Person {
         this(new Name.NameBuilder().setFirstName(name).create(),father,height);
     }
 
+    public int getHeight() {
+        return height;
+    }
+
+    public Person getFather() {
+        return father;
+    }
+
+    public Name getName() {
+        return name;
+    }
 
     public void setName(Name name) {
         this.name = name;
