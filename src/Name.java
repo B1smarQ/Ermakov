@@ -58,9 +58,21 @@ public class Name {
         }
 
         public Name create(){
-            List<String> names = new ArrayList<>(List.of(new String[]{firstName, surname, lastName}));
-            if(names.stream().allMatch(x->x==null))throw new Stone("Name can't be empty");
+            checkValidity();
             return new Name(firstName,surname,lastName);
+        }
+        private  void checkValidity(){
+            if(firstName == null && surname == null && lastName == null) throw new Stone("Name can't be empty");
+            assert firstName != null;
+            if(firstName.isBlank()) {
+                assert surname != null;
+                if (surname.isBlank()) {
+                    assert  lastName !=null;
+                    if(lastName.isBlank())
+                        throw new Stone("Name can't be empty");
+
+                }
+            }
         }
     }
 

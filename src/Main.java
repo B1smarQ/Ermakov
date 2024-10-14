@@ -20,5 +20,12 @@ public class Main {
         Fraction result = frac.add(new Fraction(2,7)).multiply(new Fraction(2,2)).divide(new Fraction(3,3)).add(new Fraction(-1,2));
 
         System.out.println(result);
+
+        Department dpt = new Department("IT");
+        Worker employee = new Worker(new Name.NameBuilder().setFirstName("Ivan").setSurname("Kozlov").create(), dpt);
+        employee.promoteToBoss();
+        //Boss employee1 = new Boss(new Name.NameBuilder().setFirstName("Jonathan").setSurname("Joestar").create(), dpt);
+
+        System.out.println(dpt);
     }
 }
