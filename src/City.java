@@ -1,18 +1,27 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class City {
-    private List<Way> ways;
-    private String Name;
+    protected List<Way> ways = new ArrayList<>();
+    protected String Name;
 
-    private void addWay(Way way){
+    public City(String name) {
+        Name = name;
+    }
+
+    protected void addWay(Way way){
         if(ways.stream().anyMatch(x->x.getCityTo() == way.getCityTo())) throw new Stone("Way already exists");
         ways.add(way);
     }
 
-    private void addWay(Way... way){
+    protected void addWay(Way... way){
         for (Way x:way){
             addWay(x);
         }
+    }
+
+    public String getName() {
+        return Name;
     }
 
     public List<Way> getWays() {

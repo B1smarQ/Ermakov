@@ -7,7 +7,19 @@ public class Way {
         this.cost = cost;
     }
 
+    public int getCost() {
+        return cost;
+    }
+
     public City getCityTo() {
         return cityTo;
+    }
+
+    @Override
+    public String toString() {
+        return "Way{" +
+                "cityTo=" + cityTo.getName() +
+                ", cost=" + cost +
+                '}';
     }
 }

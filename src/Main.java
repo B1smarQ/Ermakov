@@ -27,5 +27,20 @@ public class Main {
         //Boss employee1 = new Boss(new Name.NameBuilder().setFirstName("Jonathan").setSurname("Joestar").create(), dpt);
 
         System.out.println(dpt);
+
+        CityDouble c1 = new CityDouble("A");
+        CityDouble c2 = new CityDouble("B");
+        c1.addWay(new Way(c2,5));
+        System.out.println(c1);
+        System.out.println(c2);
+
+        AR ar = new AR();
+        ar.Shoot(5);
+        ar.ShootForTime(3);
+        ar.Reload(30);
+        ar.Shoot(30);
+
+        Point3D point3D = new Point3D(1,2,3);
+        System.out.println(point3D);
     }
 }
