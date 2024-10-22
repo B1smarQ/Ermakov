@@ -1,12 +1,6 @@
 public class Main {
     public static void main(String[] args){
-        Person Lev = new Person("Lev", 170);
-        Person Serg = new Person(new Name.NameBuilder().setFirstName("Sergey").setSurname("Pushkin").create(),Lev,168);
-        Person Alex = new Person("Alexander",Serg,167);
-        System.out.println(Lev);
-        System.out.println(Serg);
-        System.out.println(Alex);
-
+        
         Cat barsik = new Cat("barsik");
         barsik.MeowN(10);
 
@@ -35,10 +29,10 @@ public class Main {
         System.out.println(c2);
 
         AR ar = new AR();
-        ar.Shoot(5);
+        ar.shoot(5);
         ar.ShootForTime(3);
         ar.Reload(30);
-        ar.Shoot(30);
+        ar.shoot(30);
 
         Point3D point3D = new Point3D(1,2,3);
         System.out.println(point3D);

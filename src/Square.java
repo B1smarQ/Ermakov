@@ -1,17 +1,26 @@
 public class Square {
-    private final Point2D topLeftPoint;
-    private  int sideLength;
+    private Point2D topLeftPoint;
+    private int sideLength;
 
     public Square(Point2D topLeftPoint, int sideLength) {
-        if(sideLength<=0) throw new Stone("Side must be larger than 0");
+        checkValidity(sideLength);
         this.topLeftPoint = topLeftPoint;
         this.sideLength = sideLength;
+    }
 
+    public void setTopLeftPoint(Point2D topLeftPoint) {
+        this.topLeftPoint = topLeftPoint;
+    }
 
+    public Square (int x, int y, int sideLength){
+        this(new Point2D(x,y),sideLength);
+    }
+    private void checkValidity(int len){
+        if(len<=0) throw new Stone("Side must be larger than 0");
     }
 
     public void setSideLength(int sideLength) {
-        if(sideLength<=0) throw new Stone("Side must be larger than 0");
+        checkValidity(sideLength);
         this.sideLength = sideLength;
     }
 

@@ -11,10 +11,16 @@ public class AR extends Pistol{
         this(30,30,30);
     }
 
-    public void Shoot(int amount) {
+    public void shoot(){
+        for (int i = 0; i < fireRate; i++) {
+            shoot(fireRate);
+        }
+    }
+
+    public void shoot(int amount) {
         if(amount <0) return;
         if(amount > this.bullets) {
-            Shoot(bullets);
+            shoot(bullets);
             return;
         }
         bullets-=amount;
@@ -22,6 +28,6 @@ public class AR extends Pistol{
 
     }
     public void ShootForTime(int seconds){
-        Shoot(fireRate*seconds);
+        shoot(fireRate*seconds);
     }
 }

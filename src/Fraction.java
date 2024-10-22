@@ -1,4 +1,4 @@
-public class Fraction {
+public final class Fraction {
     private final int numerator;
     private final int denominator;
 
@@ -40,6 +40,7 @@ public class Fraction {
         if (b==0) return a;
         return GCD(b,a%b);
     }
+
 
     public Fraction subtract(Fraction frac){
         return add(frac);

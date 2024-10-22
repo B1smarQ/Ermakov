@@ -3,11 +3,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Student {
-    String name;
-    List<Integer> grades=  new ArrayList<>();
+    private String name;
+    private List<Integer> grades;
 
     public Student(String name, Integer... grades) {
-        this.name = name;
+        if(name == null || name.isBlank())throw new Stone();
         if(Arrays.stream(grades).anyMatch(x->x<2||x>5))throw new Stone("Grades must be [2,5]");
         this.grades = Arrays.asList(grades);
     }
@@ -17,6 +17,16 @@ public class Student {
     private void addGrades(Integer... grades){
         if(Arrays.stream(grades).anyMatch(x->x<2 || x>5)) throw new Stone("Grades must be [2,5]");
         this.grades.addAll(List.of(grades));
+    }
+
+    public List<Integer> getGrades() {
+        return new ArrayList<>(grades);
+
+    }
+
+    private void removeGrade(int index){
+        if(index>this.grades.size())throw new Stone();
+        this.grades.remove(index);
     }
 
     public String toGrades(){

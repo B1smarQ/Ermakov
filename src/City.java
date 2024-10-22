@@ -10,8 +10,8 @@ public class City {
     }
 
     protected void addWay(Way way){
-        if(ways.stream().anyMatch(x->x.getCityTo() == way.getCityTo())) throw new Stone("Way already exists");
-        ways.add(way);
+        if(ways.stream().noneMatch(x->x.getCityTo() == way.getCityTo()))
+            ways.add(way);
     }
 
     protected void addWay(Way... way){
@@ -25,7 +25,7 @@ public class City {
     }
 
     public List<Way> getWays() {
-        return ways;
+        return new ArrayList<>(ways);
     }
 
     @Override

@@ -63,16 +63,7 @@ public class Name {
         }
         private  void checkValidity(){
             if(firstName == null && surname == null && lastName == null) throw new Stone("Name can't be empty");
-            assert firstName != null;
-            if(firstName.isBlank()) {
-                assert surname != null;
-                if (surname.isBlank()) {
-                    assert  lastName !=null;
-                    if(lastName.isBlank())
-                        throw new Stone("Name can't be empty");
 
-                }
-            }
         }
     }
 

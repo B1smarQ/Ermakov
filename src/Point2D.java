@@ -1,13 +1,24 @@
-public class Point2D {
-    int x,y;
+import java.awt.*;
+import java.sql.Time;
 
-    public Point2D(int x, int y) {
-        this.x = x;
+public class Point2D extends Point1D {
+    int y;
+
+    public Point2D(Color color, Time time, int x, int y) {
+        super(color, time, x);
         this.y = y;
     }
 
-    @Override
-    public String toString() {
-        return String.format(" {%d;%d} ",x,y);
+    public Point2D(Color color, int x, int y) {
+        super(color, x);
+        this.y = y;
+    }
+
+    public Point2D(Time time, int x, int y) {
+        this(null,time,x,y);
+    }
+
+    public Point2D(int x, int y) {
+        this(null,null,x,y);
     }
 }
