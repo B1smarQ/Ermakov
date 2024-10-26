@@ -1,15 +1,14 @@
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class PolyLine {
+public class PolyLineBasic {
     List<Point2D> points;
 
-    public PolyLine(List<Point2D> points) {
+    public PolyLineBasic(List<Point2D> points) {
         this.points = points;
     }
 
-    public PolyLine(Point2D... points) {
+    public PolyLineBasic(Point2D... points) {
         this(Arrays.asList(points));
     }
 

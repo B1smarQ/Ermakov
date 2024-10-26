@@ -1,6 +1,8 @@
+package Inheritance;
+
 import java.sql.Time;
 
-public class TimeAttribute extends Attribute{
+public class TimeAttribute extends Attribute {
     public TimeAttribute( Time value) {
         super("Time", value);
 

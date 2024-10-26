@@ -1,3 +1,5 @@
+package Inheritance;
+
 import java.awt.*;
 import java.sql.Time;
 

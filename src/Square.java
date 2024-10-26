@@ -28,12 +28,12 @@ public class Square {
         return sideLength;
     }
 
-    public PolyLine getSquare(){
+    public PolyLineBasic getSquare(){
         Point2D topRight = new Point2D(topLeftPoint.x+sideLength, topLeftPoint.y );
         Point2D bottomRight = new Point2D(topRight.x, topRight.y-sideLength);
         Point2D bottomLeft = new Point2D(topLeftPoint.x, bottomRight.y);
 
-        return new PolyLine(topLeftPoint,topRight,bottomRight,bottomLeft);
+        return new PolyLineBasic(topLeftPoint,topRight,bottomRight,bottomLeft);
     }
 
     @Override

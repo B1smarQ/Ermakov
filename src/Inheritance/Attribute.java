@@ -1,3 +1,5 @@
+package Inheritance;
+
 public abstract class Attribute {
     String name;
     Object value;
@@ -25,7 +27,7 @@ public abstract class Attribute {
 
     @Override
     public String toString() {
-        return "Attribute{" +
+        return "Inheritance.Attribute{" +
                 "name='" + name + '\'' +
                 ", value=" + value +
                 '}';

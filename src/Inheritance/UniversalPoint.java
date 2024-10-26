@@ -1,3 +1,5 @@
+package Inheritance;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -10,5 +12,12 @@ public class UniversalPoint {
 
     public UniversalPoint(Attribute... attributes){
         this(Arrays.stream(attributes).toList());
+    }
+
+    @Override
+    public String toString() {
+        return "Inheritance.UniversalPoint{" +
+                "attributes=" + attributes +
+                '}';
     }
 }

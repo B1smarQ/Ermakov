@@ -13,7 +13,9 @@ public class Point2D extends Point1D {
         super(color, x);
         this.y = y;
     }
-
+    public Point2D(Point2D point2D){
+        this(point2D.x,point2D.y);
+    }
     public Point2D(Time time, int x, int y) {
         this(null,time,x,y);
     }

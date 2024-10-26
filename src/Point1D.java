@@ -1,7 +1,9 @@
+import Inheritance.PointCharacteristics;
+
 import java.awt.*;
 import java.sql.Time;
 
-public class Point1D extends PointCharacteristics{
+public class Point1D extends PointCharacteristics {
     int x;
 
     public Point1D(Color color, Time time, int x) {

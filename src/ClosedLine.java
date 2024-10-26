@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class ClosedLine extends PolyLine{
+public class ClosedLine extends PolyLineBasic {
     public ClosedLine(List<Point2D> points) {
         super(points);
     }
