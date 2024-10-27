@@ -20,6 +20,9 @@ public class MainInheritance {
 
         CityGraph graph = new CityGraph(A,B,C,D,E);
         System.out.println(graph);
+
+        Square square = new Square(new Point2D(1,1),5);
+        System.out.println(square.getArea());
     }
     static double lengthSum(Measurable... measurables){
         double res = 0;
@@ -34,5 +37,12 @@ public class MainInheritance {
             res+=number.doubleValue();
         }
         return res;
+    }
+    static PolyLine getCommonLine(PolyLine... shapes){
+        PolyLine result = new PolyLine();
+        for (PolyLine line :shapes){
+            result.addPoint(line.getPolyLine());
+        }
+        return result;
     }
 }

@@ -17,6 +17,20 @@ public class PolyLine implements Measurable {
         this(Arrays.asList(points));
     }
 
+    public PolyLine() {
+    }
+
+    public void addPoint(Point2D... point2D){
+        addPoint(Arrays.asList(point2D));
+    }
+
+    public List<Point2D> getPolyLine(){
+        return new ArrayList<>(points);
+    }
+
+    public void addPoint(List<Point2D> points){
+        this.points.addAll(points);
+    }
 
     @Override
     public double getLength() {
