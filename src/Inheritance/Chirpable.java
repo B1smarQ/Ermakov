@@ -1,5 +1,5 @@
 package Inheritance;
 
 public interface Chirpable {
-    public void Chirp();
+     void Chirp();
 }

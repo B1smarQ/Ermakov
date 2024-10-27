@@ -10,7 +10,7 @@ public class PolyLine implements Measurable {
 
 
     public PolyLine(List<Point2D> points) {
-        this.points = points;
+        this.points.addAll(points);
     }
 
     public PolyLine(Point2D... points) {

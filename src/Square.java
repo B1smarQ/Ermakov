@@ -1,3 +1,5 @@
+import Inheritance.PolyLineBasic;
+import Inheritance.Point2D;
 public class Square {
     private Point2D topLeftPoint;
     private int sideLength;
@@ -29,9 +31,9 @@ public class Square {
     }
 
     public PolyLineBasic getSquare(){
-        Point2D topRight = new Point2D(topLeftPoint.x+sideLength, topLeftPoint.y );
-        Point2D bottomRight = new Point2D(topRight.x, topRight.y-sideLength);
-        Point2D bottomLeft = new Point2D(topLeftPoint.x, bottomRight.y);
+        Point2D topRight = new Point2D(topLeftPoint.getX() +sideLength, topLeftPoint.getY());
+        Point2D bottomRight = new Point2D(topRight.getX(), topRight.getY() -sideLength);
+        Point2D bottomLeft = new Point2D(topLeftPoint.getX(), bottomRight.getY());
 
         return new PolyLineBasic(topLeftPoint,topRight,bottomRight,bottomLeft);
     }

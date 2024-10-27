@@ -1,19 +1,26 @@
 package Inheritance;
 
-import java.awt.geom.Point2D;
-
 public class Square extends Shape{
     private Point2D topLeft;
-    private double side;
+    private int side;
 
-    public Square(Point2D topLeft, double side) {
+    public Square(Point2D topLeft, int side) {
         if(side<=0) throw new Stone("Side must be greater than 0");
-        this.topLeft = topLeft;
+        this.topLeft = new Point2D(topLeft);
         this.side = side;
     }
 
     @Override
     public double getArea() {
         return side*side;
+    }
+
+    public ClosedLine getSquare(){
+        return new ClosedLine(
+                new Point2D(topLeft.getX(),topLeft.getY()),
+                new Point2D(topLeft.getX()+side, topLeft.getY()),
+                new Point2D(topLeft.getX()+side, topLeft.getY()-side),
+                new Point2D(topLeft.getX(), topLeft.getY()-side)
+        );
     }
 }

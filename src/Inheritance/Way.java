@@ -1,3 +1,5 @@
+package Inheritance;
+
 public class Way {
     private City cityTo;
     private int cost;
@@ -17,7 +19,7 @@ public class Way {
 
     @Override
     public String toString() {
-        return "Way{" +
+        return "Inheritance.Way{" +
                 "cityTo=" + cityTo.getName() +
                 ", cost=" + cost +
                 '}';

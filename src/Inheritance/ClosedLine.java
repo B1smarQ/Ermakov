@@ -1,6 +1,8 @@
+package Inheritance;
+
 import java.util.List;
 
-public class ClosedLine extends PolyLineBasic {
+public class ClosedLine extends PolyLine {
     public ClosedLine(List<Point2D> points) {
         super(points);
     }

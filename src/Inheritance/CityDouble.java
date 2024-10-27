@@ -1,3 +1,5 @@
+package Inheritance;
+
 public class CityDouble extends City{
     public CityDouble(String name) {
         super(name);
@@ -7,7 +9,7 @@ public class CityDouble extends City{
     protected void addWay(Way way) {
         super.addWay(way);
         if(way.getCityTo().getWays().stream().noneMatch(x->x.getCityTo()==this))
-            way.getCityTo().addWay(way);
+            way.getCityTo().addWay(new Way(this, way.getCost()));
     }
 
     @Override
