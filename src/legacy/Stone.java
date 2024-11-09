@@ -5,6 +5,7 @@ public class Stone extends IllegalArgumentException{
         super(s);
     }
     public Stone (){
-        super();
+        this("");
     }
 }
+

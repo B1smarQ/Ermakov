@@ -2,6 +2,8 @@ package legacy;
 
 import geometry.PolyLineBasic;
 import geometry.Point2D;
+import inheritance.CityDouble;
+
 public class Square {
     private Point2D topLeftPoint;
     private int sideLength;
@@ -26,6 +28,7 @@ public class Square {
     public void setSideLength(int sideLength) {
         checkValidity(sideLength);
         this.sideLength = sideLength;
+
     }
 
     public int getSideLength() {

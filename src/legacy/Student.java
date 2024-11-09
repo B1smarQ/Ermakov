@@ -3,22 +3,27 @@ package legacy;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
+import java.util.function.Predicate;
 
 public class Student {
     private String name;
-    private List<Integer> grades;
+    private List<Integer> grades = new ArrayList<>();
+    private Predicate<Integer> rule;
 
-    public Student(String name, Integer... grades) {
+    public Student(String name,Predicate<Integer> rule, Integer... grades) {
+        this.name = name;
+        this.rule = rule;
         if(name == null || name.isBlank())throw new Stone();
-        if(Arrays.stream(grades).anyMatch(x->x<2||x>5))throw new Stone("Grades must be [2,5]");
-        this.grades = Arrays.asList(grades);
+        addGrades(grades);
     }
     private double calculateGrades(){
         return this.grades.stream().mapToInt(x->x).average().orElse(0);
     }
     private void addGrades(Integer... grades){
-        if(Arrays.stream(grades).anyMatch(x->x<2 || x>5)) throw new Stone("Grades must be [2,5]");
-        this.grades.addAll(List.of(grades));
+        for(int grade:grades){
+            addGrades(grade);
+        }
     }
 
     public List<Integer> getGrades() {
@@ -26,9 +31,18 @@ public class Student {
 
     }
 
-    private void removeGrade(int index){
-        if(index>this.grades.size())throw new Stone();
-        this.grades.remove(index);
+    public void removeGrade(int grade){
+        if(grades.contains(grade))
+            grades.remove((Object)grade);
+    }
+    public void addGrades(int grade){
+        checkValidity(grade);
+        this.grades.add(grade);
+    }
+    private void checkValidity(int grade){
+        if(rule.test(grade))
+            return;
+        throw new Stone("Invalid grade");
     }
 
     public String toGrades(){
