@@ -9,15 +9,26 @@ import legacy.Stone;
 import legacy.Student;
 
 import java.util.Arrays;
-
+import office.*;
 public class Starter {
     public static void main(String[] args) {
-      Student s1 = new Student("Jamal", new RuleTwoToFive());
-      Student s2 = new Student("Alex", new RuleThreeToSix());
+        Department dpt = new Department("IT");
+        Department dpt2 = new Department("Marketing");
+        Employee emp = new Employee(dpt, "james");
+        System.out.println(dpt);
+        System.out.println(dpt2);
+        System.out.println(emp);
 
-      addToStudents(3, s1, s2);
-      addToStudents(2, s1,s2);
+        emp.setWorkplace(dpt2);
+        System.out.println(dpt);
+        System.out.println(dpt2);
+        System.out.println(emp);
 
+        dpt.addEmployee(emp);
+
+        System.out.println(dpt);
+        System.out.println(dpt2);
+        System.out.println(emp);
     }
 
     public static void addToStudents(int grade, Student... students){
