@@ -1,7 +1,9 @@
 package inheritance;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 
 public class City {
     protected List<Way> ways = new ArrayList<>();
@@ -34,7 +36,19 @@ public class City {
     public String toString() {
         return "City{" +
                 "ways=" + ways +
-                ", legacy.Name='" + Name + '\'' +
+                ", ru.makeev.legacy.Name='" + Name + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof City city)) return false;
+        return new HashSet<>(getWays()).containsAll(city.getWays()) && getWays().size()==city.getWays().size();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getWays());
     }
 }

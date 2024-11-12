@@ -1,9 +1,7 @@
 package legacy;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 import java.util.function.Predicate;
 
 public class Student {

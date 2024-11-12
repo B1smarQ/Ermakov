@@ -17,7 +17,7 @@ public class Square extends Shape{
         return side*side;
     }
 
-    public ClosedLine getPolyLine(){
+    public PolyLine getPolyLine(){
         return new ClosedLine(
                 new Point2D(topLeft.getX(),topLeft.getY()),
                 new Point2D(topLeft.getX()+side, topLeft.getY()),

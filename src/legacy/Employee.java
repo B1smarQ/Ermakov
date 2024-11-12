@@ -25,6 +25,6 @@ public abstract class Employee {
 
     @Override
     public String toString() {
-        return String.format("legacy.Employee %s working in %s under %s",name,workplace.getDptName(), workplace.getBoss().name);
+        return String.format("ru.makeev.legacy.Employee %s working in %s under %s",name,workplace.getDptName(), workplace.getBoss().name);
     }
 }

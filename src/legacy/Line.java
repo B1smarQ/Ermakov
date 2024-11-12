@@ -39,6 +39,6 @@ public class Line {
 
     @Override
     public String toString() {
-        return String.format("legacy.Line from %s to %s", point1,point2);
+        return String.format("ru.makeev.legacy.Line from %s to %s", point1,point2);
     }
 }

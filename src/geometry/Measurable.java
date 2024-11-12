@@ -1,5 +1,5 @@
 package geometry;
 
 public interface Measurable {
-    public double getLength();
+    double getLength();
 }

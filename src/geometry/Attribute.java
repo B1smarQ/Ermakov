@@ -27,7 +27,7 @@ public abstract class Attribute {
 
     @Override
     public String toString() {
-        return "geometry.Attribute{" +
+        return "ru.makeev.geometry.Attribute{" +
                 "name='" + name + '\'' +
                 ", value=" + value +
                 '}';

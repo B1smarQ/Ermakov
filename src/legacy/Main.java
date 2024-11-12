@@ -1,15 +1,11 @@
 package legacy;
 
-import animals.BirdMarket;
-import animals.Cuckoo;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Main {
     public static void main(String[] args){
-        
-        BirdMarket market = new BirdMarket();
-        Cuckoo cuckoo = new Cuckoo();
-        market.makeChirp(cuckoo);
 
     }
 }
