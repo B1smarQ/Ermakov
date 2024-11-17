@@ -74,4 +74,5 @@ public class Student implements Comparable<Student> {
         double otherGrade = other.calculateGrades();
         return Double.compare(currentGrade, otherGrade);
     }
+
 }

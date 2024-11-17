@@ -1,5 +1,5 @@
 package generics;
 
 public interface Comparable<T> {
-    public int compare();
+    public int compare(T t);
 }
