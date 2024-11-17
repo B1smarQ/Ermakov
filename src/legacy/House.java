@@ -10,7 +10,7 @@ public class House {
 
     @Override
     public String toString() {
-        return "legacy.House{" +
+        return "ru.makeev.legacy.House{" +
                 "stories=" + stories +
                 '}';
     }

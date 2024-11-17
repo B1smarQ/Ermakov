@@ -16,7 +16,7 @@ public class UniversalPoint {
 
     @Override
     public String toString() {
-        return "geometry.UniversalPoint{" +
+        return "ru.makeev.geometry.UniversalPoint{" +
                 "attributes=" + attributes +
                 '}';
     }

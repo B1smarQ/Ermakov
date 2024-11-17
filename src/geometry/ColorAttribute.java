@@ -12,7 +12,7 @@ public class ColorAttribute extends Attribute {
 
     @Override
     public String toString() {
-        return "geometry.ColorAttribute{" +
+        return "ru.makeev.geometry.ColorAttribute{" +
                 "value=" + value +
                 '}';
     }

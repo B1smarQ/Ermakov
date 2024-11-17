@@ -1,5 +1,7 @@
 package office;
 
+import org.jetbrains.annotations.NotNull;
+
 public class Employee {
     Department workplace;
     String name;
@@ -13,10 +15,12 @@ public class Employee {
     public void setWorkplace(Department dpt){
         if(dpt == workplace) return;
         if(dpt == null){
+            workplace.removeEmployee(this);
             this.workplace = null;
             return;
         }
-        workplace.removeEmployee(this);
+        if(this.workplace!=null)
+            workplace.removeEmployee(this);
         workplace = dpt;
         dpt.addEmployee(this);
 

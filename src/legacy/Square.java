@@ -2,7 +2,6 @@ package legacy;
 
 import geometry.PolyLineBasic;
 import geometry.Point2D;
-import inheritance.CityDouble;
 
 public class Square {
     private Point2D topLeftPoint;
@@ -45,7 +44,7 @@ public class Square {
 
     @Override
     public String toString() {
-        return "legacy.Square{" +
+        return "ru.makeev.legacy.Square{" +
                 "topLeftPoint=" + topLeftPoint +
                 ", sideLength=" + sideLength +
                 '}';

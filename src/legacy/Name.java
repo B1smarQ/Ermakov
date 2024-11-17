@@ -61,7 +61,7 @@ public class Name {
             return new Name(firstName,surname,lastName);
         }
         private  void checkValidity(){
-            if(firstName == null && surname == null && lastName == null) throw new Stone("legacy.Name can't be empty");
+            if(firstName == null && surname == null && lastName == null) throw new Stone("ru.makeev.legacy.Name can't be empty");
 
         }
     }

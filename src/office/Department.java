@@ -1,23 +1,27 @@
 package office;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Department {
     String name;
+
     List<Employee> employees = new ArrayList<>();
 
     public Department(String name) {
         this.name = name;
     }
 
-    public void addEmployee(Employee employee){
+    public void addEmployee(@NotNull Employee employee){
         if(employees.contains(employee))return;
         if(employee.workplace == this){
             employees.add(employee);
             return;
         }
-        employee.workplace.removeEmployee(employee);
+        if(employee.workplace!=null)
+            employee.workplace.removeEmployee(employee);
         employee.workplace = this;
         employees.add(employee);
     }

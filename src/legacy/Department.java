@@ -21,8 +21,8 @@ public class Department {
 
     @Override
     public String toString() {
-        return "legacy.Department{" +
-                "legacy.Boss=" + Boss.name +
+        return "ru.makeev.legacy.Department{" +
+                "ru.makeev.legacy.Boss=" + Boss.name +
                 ", dptName='" + dptName + '\'' +
                 '}';
     }

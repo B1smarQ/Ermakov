@@ -1,6 +1,8 @@
 package geometry;
 
-public class Point2D {
+import java.util.Objects;
+
+public class Point2D implements Comparable<Point2D> {
     int x,y;
 
     public Point2D(int x, int y) {
@@ -34,5 +36,25 @@ public class Point2D {
     @Override
     public String toString() {
         return String.format("{%d %d}",x,y);
+    }
+
+    @Override
+    public int compareTo(Point2D o) {
+        if(o.getX()==this.getX())
+            return this.getY()-o.getY();
+        return this.getX()-o.getX();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Point2D point2D = (Point2D) o;
+        return x == point2D.x && y == point2D.y;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
     }
 }

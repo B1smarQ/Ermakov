@@ -4,7 +4,7 @@ import java.sql.Time;
 
 public class TimeAttribute extends Attribute {
     public TimeAttribute( Time value) {
-        super("legacy.Time", value);
+        super("ru.makeev.legacy.Time", value);
 
     }
 
