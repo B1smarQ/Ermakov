@@ -67,6 +67,11 @@ public final class Fraction {
     }
 
     @Override
+    public Object clone() throws CloneNotSupportedException {
+        return new Fraction(this.numerator,this.denominator);
+    }
+
+    @Override
     public String toString() {
         return String.format("%d/%d",numerator,denominator);
     }

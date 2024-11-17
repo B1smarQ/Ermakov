@@ -1,15 +1,19 @@
 package main;
 
+import animals.BarkAdapter;
+import animals.Cat;
 import geometry.Point2D;
 import geometry.Square;
 
-import legacy.RuleThreeToSix;
-import legacy.RuleTwoToFive;
-import legacy.Stone;
-import legacy.Student;
+import legacy.*;
 
 import java.util.Arrays;
+import java.util.function.Predicate;
+
 import office.*;
+import office.Department;
+import office.Employee;
+
 public class Starter {
     public static void main(String[] args) {
         Department dpt = new Department("IT");
@@ -29,6 +33,13 @@ public class Starter {
         System.out.println(dpt);
         System.out.println(dpt2);
         System.out.println(emp);
+
+        Fraction fraction = new Fraction(2,3);
+        try {
+            Fraction fraction1 = (Fraction) fraction.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public static void addToStudents(int grade, Student... students){
@@ -43,9 +54,13 @@ public class Starter {
                 break;
             }
         }
+        
         System.out.println(Arrays.toString(students));
 
+        new BarkAdapter(new Cat("Gami")).Bark();
+
     }
+
     public static void removeFromStudents(int grade,int amount,  Student... students){
         for (int i = 0; i < amount; i++) {
             students[i].removeGrade(grade);

@@ -1,13 +1,19 @@
 package geometry;
 
 
-public class Line implements Measurable {
-    private final Point2D startPoint;
-    private final Point2D endPoint;
+public class Line<T extends Point2D> implements Measurable {
+    private final T startPoint;
+    private final T endPoint;
 
-    public Line(Point2D startPoint, Point2D endPoint) {
+    public Line(T startPoint, T endPoint) {
         this.startPoint = startPoint;
         this.endPoint = endPoint;
+    }
+
+
+    @Override
+    protected Object clone()  {
+        return new Line<>(this.startPoint.clone(),this.endPoint.clone());
     }
 
     @Override

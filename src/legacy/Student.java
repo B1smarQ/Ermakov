@@ -1,12 +1,14 @@
 package legacy;
 
+import generics.Comparable;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
 
-public class Student {
+public class Student implements Comparable<Student> {
     private String name;
     private List<Integer> grades = new ArrayList<>();
     private Predicate<Integer> rule;
@@ -66,5 +68,12 @@ public class Student {
                 "name='" + name + '\'' +
                 ", grades=" + grades +
                 '}';
+    }
+
+    @Override
+    public int compare(Student other) {
+        double currentGrade = calculateGrades();
+        double otherGrade = other.calculateGrades();
+        return Double.compare(currentGrade, otherGrade);
     }
 }

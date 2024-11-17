@@ -27,7 +27,10 @@ public class Point2D {
     public void setY(int y) {
         this.y = y;
     }
-
+    @Override
+    public Point2D clone(){
+        return new Point2D(this);
+    }
     @Override
     public String toString() {
         return String.format("{%d %d}",x,y);
