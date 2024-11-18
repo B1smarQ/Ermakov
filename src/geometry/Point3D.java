@@ -1,6 +1,8 @@
 package geometry;
 
-public class Point3D extends Point2D implements Cloneable{
+import generics.ActuallyCloneable;
+
+public class Point3D extends Point2D  {
     int z = 0;
     public Point3D(int x, int y, int z) {
         super(x, y);
@@ -17,11 +19,16 @@ public class Point3D extends Point2D implements Cloneable{
     }
 
     @Override
+    public String toString() {
+        return "Point3D{" +
+                "z=" + z +
+                ", x=" + x +
+                ", y=" + y +
+                '}';
+    }
+
+    @Override
     public Point3D clone() {
-        try {
-            return (Point3D) super.clone();
-        } catch (CloneNotSupportedException e) {
-            throw new AssertionError();
-        }
+        return new Point3D(this);
     }
 }

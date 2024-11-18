@@ -1,5 +1,7 @@
 package geometry;
 
+import generics.ActuallyCloneable;
+
 import java.util.Objects;
 
 public class Point2D implements Comparable<Point2D>, Cloneable {
@@ -32,8 +34,7 @@ public class Point2D implements Comparable<Point2D>, Cloneable {
     @Override
     public Point2D clone() throws CloneNotSupportedException {
         try {
-            Point2D point2D = (Point2D) super.clone();
-            return new Point2D(this);
+            return (Point2D) super.clone();
         } catch (CloneNotSupportedException e) {
             throw new RuntimeException(e);
         }

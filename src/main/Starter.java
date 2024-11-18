@@ -2,7 +2,9 @@ package main;
 
 import animals.BarkAdapter;
 import animals.Cat;
+import geometry.Line;
 import geometry.Point2D;
+import geometry.Point3D;
 import geometry.Square;
 
 import legacy.*;
@@ -15,31 +17,21 @@ import office.Department;
 import office.Employee;
 
 public class Starter {
-    public static void main(String[] args) {
-        Department dpt = new Department("IT");
-        Department dpt2 = new Department("Marketing");
-        Employee emp = new Employee(dpt, "james");
-        System.out.println(dpt);
-        System.out.println(dpt2);
-        System.out.println(emp);
+    public static void main(String[] args) throws CloneNotSupportedException {
+        Point2D p1 = new Point2D(1,2);
+        Point2D p2 = p1.clone();
+        System.out.println(p1);
+        System.out.println(p2);
+        Line<Point2D> line = new Line<Point2D>(p1,p2);
+        Line<Point2D> line1 = line.clone();
 
-        emp.setWorkplace(dpt2);
-        System.out.println(dpt);
-        System.out.println(dpt2);
-        System.out.println(emp);
+        Line<Point3D> line2 = new Line<Point3D>(new Point3D(4,2,3), new Point3D(2,7,6));
+        Line<Point3D> line3 = line2.clone();
 
-        dpt.addEmployee(emp);
-
-        System.out.println(dpt);
-        System.out.println(dpt2);
-        System.out.println(emp);
-
-        Fraction fraction = new Fraction(2,3);
-        try {
-            Fraction fraction1 = (Fraction) fraction.clone();
-        } catch (CloneNotSupportedException e) {
-            throw new RuntimeException(e);
-        }
+        System.out.println(line);
+        System.out.println(line1);
+        System.out.println(line2);
+        System.out.println(line3);
     }
 
     public static void addToStudents(int grade, Student... students){

@@ -1,5 +1,6 @@
 package animals;
 
+
 import org.jetbrains.annotations.NotNull;
 
 public class CatAlert implements Meowable{
