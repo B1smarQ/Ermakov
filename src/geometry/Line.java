@@ -1,7 +1,7 @@
 package geometry;
 
 
-public class Line<T extends Point2D> implements Measurable {
+public class Line<T extends Point2D> implements Measurable,Cloneable {
     private final T startPoint;
     private final T endPoint;
 
@@ -12,7 +12,7 @@ public class Line<T extends Point2D> implements Measurable {
 
 
     @Override
-    protected Object clone()  {
+    protected Object clone() throws CloneNotSupportedException {
         return new Line<>(this.startPoint.clone(),this.endPoint.clone());
     }
 
