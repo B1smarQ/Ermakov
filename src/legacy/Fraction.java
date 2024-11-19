@@ -1,6 +1,6 @@
 package legacy;
 
-public final class Fraction {
+public final class Fraction implements Cloneable {
     private final int numerator;
     private final int denominator;
 
@@ -68,7 +68,11 @@ public final class Fraction {
 
     @Override
     public Object clone() throws CloneNotSupportedException {
-        return new Fraction(this.numerator,this.denominator);
+        try {
+            return (Fraction) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

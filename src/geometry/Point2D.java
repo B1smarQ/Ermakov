@@ -32,7 +32,7 @@ public class Point2D implements Comparable<Point2D>, Cloneable {
         this.y = y;
     }
     @Override
-    public Point2D clone() throws CloneNotSupportedException {
+    public Point2D clone(){
         try {
             return (Point2D) super.clone();
         } catch (CloneNotSupportedException e) {

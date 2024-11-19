@@ -15,23 +15,16 @@ import java.util.function.Predicate;
 import office.*;
 import office.Department;
 import office.Employee;
+import random.*;
 
 public class Starter {
     public static void main(String[] args) throws CloneNotSupportedException {
-        Point2D p1 = new Point2D(1,2);
-        Point2D p2 = p1.clone();
-        System.out.println(p1);
-        System.out.println(p2);
-        Line<Point2D> line = new Line<Point2D>(p1,p2);
-        Line<Point2D> line1 = line.clone();
-
-        Line<Point3D> line2 = new Line<Point3D>(new Point3D(4,2,3), new Point3D(2,7,6));
-        Line<Point3D> line3 = line2.clone();
-
-        System.out.println(line);
-        System.out.println(line1);
-        System.out.println(line2);
-        System.out.println(line3);
+        KarateBoy karateBoy = new KarateBoy("Cat");
+        KarateBoyCombo1 combo = new KarateBoyCombo1("super meow",
+                new KarateBoyCombo1("MEEEEEOOO", new KaratePunch()),
+                new KarateBoyCombo1("MOEEEEEEOW", new KarateKick())
+                );
+        combo.MeowCombo(karateBoy);
     }
 
     public static void addToStudents(int grade, Student... students){
@@ -49,7 +42,6 @@ public class Starter {
         
         System.out.println(Arrays.toString(students));
 
-        new BarkAdapter(new Cat("Gami")).Bark();
 
     }
 

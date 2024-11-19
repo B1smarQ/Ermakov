@@ -1,6 +1,8 @@
 package inheritance;
 
-public class Fraction extends Number{
+import generics.ActuallyCloneable;
+
+public class Fraction extends Number implements ActuallyCloneable<legacy.Fraction> {
     private final int numerator;
     private final int denominator;
 
@@ -89,5 +91,10 @@ public class Fraction extends Number{
     @Override
     public double doubleValue() {
         return (double) numerator /denominator;
+    }
+
+    @Override
+    public legacy.Fraction clone() throws CloneNotSupportedException {
+        return null;
     }
 }
