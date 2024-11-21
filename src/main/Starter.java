@@ -19,12 +19,7 @@ import random.*;
 
 public class Starter {
     public static void main(String[] args) throws CloneNotSupportedException {
-        KarateBoy karateBoy = new KarateBoy("Cat");
-        KarateBoyCombo1 combo = new KarateBoyCombo1("super meow",
-                new KarateBoyCombo1("MEEEEEOOO", new KaratePunch()),
-                new KarateBoyCombo1("MOEEEEEEOW", new KarateKick())
-                );
-        combo.MeowCombo(karateBoy);
+
     }
 
     public static void addToStudents(int grade, Student... students){

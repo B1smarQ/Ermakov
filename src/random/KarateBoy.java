@@ -16,4 +16,8 @@ public class KarateBoy {
     public void jump(){
         System.out.println(name+":maUUUUUU");
     }
+
+    public void kick(KarateBoy karateBoy) {
+        kick();
+    }
 }
