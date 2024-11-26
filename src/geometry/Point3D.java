@@ -18,6 +18,10 @@ public class Point3D extends Point2D  {
         this(point3D.x,point3D.y,point3D.z);
     }
 
+    public double getLength(Point3D point3D) {
+        return Math.sqrt(Math.pow(point3D.x-x,2) + Math.pow(point3D.y - y, 2) + Math.pow(point3D.z - z,2));
+    }
+
     @Override
     public String toString() {
         return "Point3D{" +

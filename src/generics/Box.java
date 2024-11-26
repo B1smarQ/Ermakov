@@ -19,10 +19,9 @@ public class Box <T>{
         return obj != null;
     }
     public T takeObj(){
-        if(obj == null) return null;
+        //if(obj == null) return null;
         T tmp = obj;
         obj = null;
         return tmp;
-
     }
 }

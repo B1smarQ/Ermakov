@@ -39,6 +39,9 @@ public class Point2D implements Comparable<Point2D>, Cloneable {
             throw new RuntimeException(e);
         }
     }
+    public double getLength(Point2D point2D){
+        return Math.sqrt(Math.pow(point2D.x-x,2) + Math.pow(point2D.y - y, 2));
+    }
     @Override
     public String toString() {
         return String.format("{%d %d}",x,y);
