@@ -9,13 +9,13 @@ import org.jetbrains.annotations.NotNull;
 public final class Line<T extends Point2D & Cloneable> implements Measurable, Cloneable {
     private T startPoint;
     private T endPoint;
-
+    @SuppressWarnings("unchecked")
     public void setStartPoint(T startPoint) {
-        this.startPoint = startPoint;
+        this.startPoint = (T) startPoint.clone();
     }
-
+    @SuppressWarnings("unchecked")
     public void setEndPoint(T endPoint) {
-        this.endPoint = endPoint;
+        this.endPoint = (T) endPoint.clone();
     }
     @SuppressWarnings("unchecked")
     public Line(T startPoint, T endPoint) {

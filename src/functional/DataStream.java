@@ -1,5 +1,7 @@
 package functional;
 
+import generics.Box;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -16,12 +18,25 @@ public class DataStream {
         return res;
     }
 
-    public static double storageMax(List<Optional<Number>> storages){
-        double res = 0;
+    @SafeVarargs
+    public static double boxMax(Optional<Number>... storages){
+        double res = Double.NEGATIVE_INFINITY;
         for (Optional<Number> x : storages){
             if(x.isPresent()){
                 double num = x.get().doubleValue();
                 if(num >res)
+                    res = num;
+            }
+        }
+        return res;
+    }
+
+    public static double boxMax(List<Box<Number>> boxes){
+        double res = Double.NEGATIVE_INFINITY;
+        for (Box<Number> x : boxes){
+            if(x.isFull()){
+                double num = x.takeObj().doubleValue();
+                if(num>res)
                     res = num;
             }
         }

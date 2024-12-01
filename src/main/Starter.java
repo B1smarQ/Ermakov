@@ -2,22 +2,14 @@ package main;
 
 import functional.DataStream;
 import generics.Box;
-import generics.Storage;
 import geometry.Line;
 import geometry.Point2D;
 import geometry.Point3D;
 import legacy.*;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import java.util.function.Predicate;
-
-import office.*;
-import office.Department;
-import office.Employee;
-import random.*;
 
 public class Starter {
     public static void main(String[] args)  {
@@ -28,7 +20,7 @@ public class Starter {
         l2.moveX();
         System.out.println(l2);
 
-        System.out.println(DataStream.storageMax(List.of(Optional.of(5),
+        System.out.println(DataStream.BoxMax(List.of(Optional.of(5),
                 Optional.of(22.2),
                 Optional.of(1),
                 Optional.of(5.1))));
