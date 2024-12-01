@@ -24,4 +24,14 @@ public class Box <T>{
         obj = null;
         return tmp;
     }
+    public static <T> Box<T> of(T value){
+        return new Box<>(value);
+    }
+
+    @Override
+    public String toString() {
+        return "Box{" +
+                "obj=" + obj +
+                '}';
+    }
 }

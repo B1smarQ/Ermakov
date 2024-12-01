@@ -50,6 +50,13 @@ public final class Line<T extends Point2D & Cloneable> implements Measurable, Cl
                 ", endPoint=" + endPoint +
                 '}';
     }
+    public void moveX(){
+        if(startPoint.getX() > 0){
+            startPoint.setX(startPoint.x +10);
+            return;
+        }
+        startPoint.setX(startPoint.x-10);
+    }
 
     @Override
     public double getLength() {
