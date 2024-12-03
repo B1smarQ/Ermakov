@@ -1,51 +1,50 @@
 package functional;
 
-import generics.Box;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+import java.util.function.BiConsumer;
+import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
-public class DataStream {
+public class DataStream<T> {
+    List<T> initList;
 
-    public static <T> List<T> filter(List<T> val, Predicate<T> rule){
+    private  DataStream(List<T> initList) {
+        this.initList = new ArrayList<>(initList);
+    }
+
+    public DataStream<T> filter(Predicate<T> rule){
+        //TODO: O(1)
         List<T> res = new ArrayList<>();
-        for (T v: val){
+        for (T v: this.initList){
             if(rule.test(v))
                 res.add(v);
         }
-        return res;
+        this.initList = res;
+        return this;
+    }
+    public static <T> DataStream<T> of(List<T> initList){
+        return new DataStream<T>(initList);
     }
 
-    @SafeVarargs
-    public static double boxMax(Optional<Number>... storages){
-        double res = Double.NEGATIVE_INFINITY;
-        for (Optional<Number> x : storages){
-            if(x.isPresent()){
-                double num = x.get().doubleValue();
-                if(num >res)
-                    res = num;
-            }
+    public <R> R collect(Supplier<R> supplier, BiConsumer<R,T> consumer){
+        R res = supplier.get();
+        for(T x: this.initList){
+            consumer.accept(res,x);
         }
         return res;
     }
+    @SuppressWarnings({"unchecked"})
 
-    public static double boxMax(List<Box<Number>> boxes){
-        double res = Double.NEGATIVE_INFINITY;
-        for (Box<Number> x : boxes){
-            if(x.isFull()){
-                double num = x.takeObj().doubleValue();
-                if(num>res)
-                    res = num;
-            }
+    public <R> DataStream<R> map(Function<T,R> fun){
+        //TODO: O(1)
+        List res = new ArrayList<>();
+        for(T x: this.initList){
+            res.add(fun.apply(x));
         }
-        return res;
-    }
+        this.initList = res;
+        return (DataStream<R>)this;
 
-    public static void fillNums(List<Number> lst){
-        for (int i = 1; i <=100; i++) {
-            lst.add(i);
-        }
     }
 }

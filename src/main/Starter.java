@@ -5,31 +5,24 @@ import generics.Box;
 import geometry.Line;
 import geometry.Point2D;
 import geometry.Point3D;
+import geometry.PolyLine;
 import legacy.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Supplier;
 
 public class Starter {
     public static void main(String[] args)  {
-        Line<Point3D> l1 = Line.of(new Point3D(1,2,3),new Point3D(2,2,2));
-        l1.moveX();
-        System.out.println(l1);
-        Line<Point2D> l2 = Line.of(new Point2D(1,2),new Point2D(5,5));
-        l2.moveX();
-        System.out.println(l2);
-
-        System.out.println(DataStream.BoxMax(List.of(Optional.of(5),
-                Optional.of(22.2),
-                Optional.of(1),
-                Optional.of(5.1))));
-
-        Box<Point3D> box = Box.of(null);
-        System.out.println(box);
-        addPointOptional(1,2,3,box);
-        System.out.println(box);
+        List<Point2D> point2DS = List.of(new Point2D(1,2), new Point2D(-3,6), new Point2D(8,9));
+        PolyLine line = DataStream.of(point2DS)
+                .filter((p)->p.getX()>0)
+                .map(p->new Point2D(p.getX()+5, p.getY()))
+                .collect(PolyLine::new, PolyLine::addPoint);
     }
+
     public static void addPointOptional(int x, int y, int z, Box<Point3D> point3DOptional){
         point3DOptional.setObj(new Point3D(x,y,z));
     }
