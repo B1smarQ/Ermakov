@@ -6,15 +6,17 @@ public class KarateBoy {
     public KarateBoy(String name) {
         this.name = name;
     }
-    public void kick (){
-        System.out.println(name+":mau");
-    }
-    public void punch(){
-        System.out.println(name+":MAUUU");
+
+    public void kick() {
+        System.out.println(name + ":mau");
     }
 
-    public void jump(){
-        System.out.println(name+":maUUUUUU");
+    public void punch() {
+        System.out.println(name + ":MAUUU");
+    }
+
+    public void jump() {
+        System.out.println(name + ":maUUUUUU");
     }
 
     public void kick(KarateBoy karateBoy) {
