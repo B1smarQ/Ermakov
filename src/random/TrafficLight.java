@@ -1,9 +1,8 @@
 package random;
 
-import java.util.ArrayList;
-import java.util.HashSet;
+
 import java.util.List;
-import java.util.stream.Stream;
+
 
 public class TrafficLight {
     private List<String> colors;
