@@ -17,7 +17,7 @@ public class Point2D implements Comparable<Point2D>, Cloneable {
         this.y = point2D.getY();
     }
 
-    public int getX() {
+    public  int getX() {
         return x;
     }
 

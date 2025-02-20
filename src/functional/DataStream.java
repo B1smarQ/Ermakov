@@ -15,7 +15,7 @@ public class DataStream<T> {
     }
 
     public DataStream<T> filter(Predicate<T> rule) {
-        //TODO: O(1)
+
         List<T> res = new ArrayList<>();
         for (T v : this.initList) {
             if (rule.test(v))

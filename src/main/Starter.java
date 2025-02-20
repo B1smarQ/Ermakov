@@ -1,60 +1,33 @@
 package main;
 
-import functional.DataStream;
-import generics.Box;
-import geometry.Line;
 import geometry.Point2D;
-import geometry.Point3D;
 import geometry.PolyLine;
-import legacy.*;
-import random.TrafficLight;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.List;
-import java.util.Optional;
-import java.util.function.Supplier;
+import java.util.Scanner;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Starter {
-    public static void main(String[] args) {
-        TrafficLight light = new TrafficLight("Yellow");
-        light.next();
-        light.next();
-        light.next();
-        light.next();
-        light.next();
-        light.next();
-    }
-
-    public static void addPointOptional(int x, int y, int z, Box<Point3D> point3DOptional) {
-        point3DOptional.setObj(new Point3D(x, y, z));
-    }
-
-    public static void addToStudents(int grade, Student... students) {
-        int i = 0;
-        for (; i < students.length; i++) {
-            try {
-                students[i].addGrades(grade);
-            } catch (Stone s) {
-                removeFromStudents(grade, i, students);
-                System.out.println("removed all grades");
-                break;
-            }
-        }
-
-        System.out.println(Arrays.toString(students));
-
-
-    }
-
-    public static void removeFromStudents(int grade, int amount, Student... students) {
-        for (int i = 0; i < amount; i++) {
-            students[i].removeGrade(grade);
-        }
-    }
-
-    public static Optional<Number> listSum(List<Number> numberList) {
-        if (numberList == null || numberList.isEmpty()) return Optional.empty();
-        return Optional.of(numberList.stream().mapToDouble(Number::doubleValue).sum());
+    public static void main(String[] args) throws FileNotFoundException {
+        List<Point2D> points = List.of(new Point2D(1,1), new Point2D(5,7),
+                new Point2D(1,1), new Point2D(5,-19), new Point2D(7,12));
+        Scanner scanner = new Scanner(new File("C:\\Users\\Egor\\IdeaProjects\\Ermakov\\src\\Points.txt"));
+        List<PolyLine> line = Stream.generate(scanner::nextLine)
+                .peek(System.out::println)
+                .takeWhile(x-> scanner.hasNextLine())
+                .map(s->s.split(" "))
+                .map(strings -> new Point2D(Integer.parseInt(strings[0]), Integer.parseInt(strings[1])))
+                .distinct()
+                .map(p-> new Point2D(p.getX(), p.getY()<0?-p.getY():p.getY()))
+                .sorted()
+                .collect(Collectors.groupingBy(Point2D::getY))
+                .values()
+                .stream()
+                .map(PolyLine::new)
+                .toList();
+        System.out.println(line);
     }
 }
