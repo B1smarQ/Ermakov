@@ -1,12 +1,13 @@
 package main;
 
 import geometry.Point2D;
+import geometry.Point3D;
 import geometry.PolyLine;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.List;
-import java.util.Scanner;
+import java.lang.reflect.Field;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -29,5 +30,32 @@ public class Starter {
                 .map(PolyLine::new)
                 .toList();
         System.out.println(line);
+        System.out.println(findFields(line.getFirst().getClass()));
+    }
+
+    public static List<Field> findFields(Class<?> cl){
+        List<Field> fields = new ArrayList<>(List.of(cl.getDeclaredFields()));
+        if(cl.equals(Object.class)){
+            return List.of();
+        }
+        fields.addAll(findFields(cl.getSuperclass()));
+        return fields;
+    }
+    
+    abstract class Entity{
+        private String  findFieldValues(Field field) {
+            field.setAccessible(true);
+            try {
+                return field.getName() + " : " + field.get(this);
+            } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        public String toString() {
+            return getClass().getSimpleName() + " {"+ findFields(getClass())
+                    .stream()
+                    .map(this::findFieldValues)
+                    .collect(Collectors.joining(", ")) + "}";
+        }
     }
 }
