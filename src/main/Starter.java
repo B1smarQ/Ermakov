@@ -1,5 +1,6 @@
 package main;
 
+import geometry.Line;
 import geometry.Point2D;
 import geometry.Point3D;
 import geometry.PolyLine;
@@ -10,27 +11,22 @@ import java.lang.reflect.Field;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import static reflexive.GeneralMethods.lineConnector;
 
 public class Starter {
     public static void main(String[] args) throws FileNotFoundException {
-        List<Point2D> points = List.of(new Point2D(1,1), new Point2D(5,7),
-                new Point2D(1,1), new Point2D(5,-19), new Point2D(7,12));
-        Scanner scanner = new Scanner(new File("C:\\Users\\Egor\\IdeaProjects\\Ermakov\\src\\Points.txt"));
-        List<PolyLine> line = Stream.generate(scanner::nextLine)
-                .peek(System.out::println)
-                .takeWhile(x-> scanner.hasNextLine())
-                .map(s->s.split(" "))
-                .map(strings -> new Point2D(Integer.parseInt(strings[0]), Integer.parseInt(strings[1])))
-                .distinct()
-                .map(p-> new Point2D(p.getX(), p.getY()<0?-p.getY():p.getY()))
-                .sorted()
-                .collect(Collectors.groupingBy(Point2D::getY))
-                .values()
-                .stream()
-                .map(PolyLine::new)
-                .toList();
+        Line<Point2D> line = new Line<Point2D>(new Point2D(1,1), new Point2D(7,7));
+        Line<Point2D> line2 = new Line<Point2D>(new Point2D(8,8), new Point2D(12,12));
+        try {
+            lineConnector(line, line2);
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
+
         System.out.println(line);
-        System.out.println(findFields(line.getFirst().getClass()));
+        System.out.println(line2);
+
+
     }
 
     public static List<Field> findFields(Class<?> cl){
