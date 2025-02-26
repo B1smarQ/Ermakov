@@ -3,10 +3,12 @@ package reflexive;
 import geometry.Line;
 import geometry.Point2D;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class GeneralMethods {
@@ -30,12 +32,15 @@ public class GeneralMethods {
         }
         line2Start.set(line2, line1End.get(line1));
     }
-    public static void validate(Object testObj, Class testClass){
-        List<Method> testMethods= new ArrayList<>(List.of(testClass.getDeclaredMethods()));
+    public static <T,C> void validate(T testObj, Class<C> testClass) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
 
+        Constructor<C> constructor = testClass.getConstructor();
+        C testClassObj = constructor.newInstance();
+        Method[] testMethods= testClass.getDeclaredMethods();
+        System.out.println(Arrays.toString(testMethods));
         for (Method method : testMethods){
             try {
-                method.invoke(testObj);
+                method.invoke(testClassObj,testObj);
             } catch (IllegalAccessException | InvocationTargetException e) {
                 throw new RuntimeException(e);
             }
