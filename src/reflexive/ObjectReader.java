@@ -8,10 +8,11 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.Scanner;
 
-public class ObjectReader {
-    public Object readObject(String fileName) throws
+@SuppressWarnings("unchecked")
+public class ObjectReader<T> {
+    public T readObject(String fileName) throws
             ClassNotFoundException, IllegalAccessException, InstantiationException,
-            NoSuchFieldException, NoSuchMethodException, InvocationTargetException, IOException {
+             NoSuchMethodException, InvocationTargetException, IOException {
         try (Scanner scanner = new Scanner(new FileInputStream(fileName))) {
             String className = scanner.nextLine().trim();
 
@@ -41,8 +42,7 @@ public class ObjectReader {
                     System.err.println("Error setting field " + fieldName + ": " + e.getMessage());
                 }
             }
-
-            return object;
+            return (T)object;
         }
     }
 
@@ -61,6 +61,4 @@ public class ObjectReader {
         }
 
     }
-
-
 }

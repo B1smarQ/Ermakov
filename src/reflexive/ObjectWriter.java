@@ -16,7 +16,6 @@ public class ObjectWriter {
 
     private void writeObject(Object obj, StringBuilder sb) {
         sb.append(obj.getClass().getName()).append(" \n");
-
         for (Field field : obj.getClass().getDeclaredFields()) {
             field.setAccessible(true);
             try {
@@ -25,7 +24,6 @@ public class ObjectWriter {
                 System.out.println(e.getMessage());
             }
         }
-
 
     }
 }
