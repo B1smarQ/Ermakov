@@ -5,7 +5,7 @@ import annotations.Invoke;
 import lombok.Delegate;
 
 public class Human {
-    @Default(15)
+
     private  int age;
     
     private  String name;
