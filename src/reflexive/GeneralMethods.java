@@ -1,7 +1,10 @@
 package reflexive;
 
+import annotations.Invoke;
+import annotations.Test;
 import geometry.Line;
 import geometry.Point2D;
+import lombok.Delegate;
 import lombok.SneakyThrows;
 
 import java.lang.reflect.Constructor;
@@ -13,7 +16,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class GeneralMethods {
+
     public static List<Field> fieldCollection(Class<?> clazz){
+
         List<Field> fields = new ArrayList<>(List.of(clazz.getDeclaredFields()));
         if(clazz.equals(Object.class)){
             return List.of();
@@ -35,19 +40,30 @@ public class GeneralMethods {
         }
         line2Start.set(line2, line1End.get(line1));
     }
+
     public static <T,C> void validate(T testObj, Class<C> testClass) throws NoSuchMethodException,
             InvocationTargetException, InstantiationException, IllegalAccessException {
 
-        Constructor<C> constructor = testClass.getConstructor();
-        C testClassObj = constructor.newInstance();
-        Method[] testMethods= testClass.getDeclaredMethods();
-        System.out.println(Arrays.toString(testMethods));
-        for (Method method : testMethods){
-            try {
-                method.invoke(testClassObj,testObj);
-            } catch (IllegalAccessException | InvocationTargetException e) {
-                throw new ValidationException(e.getMessage());
+        Constructor<C> c = testClass.getDeclaredConstructor();
+        c.setAccessible(true);
+        C instance = c.newInstance();
+        List<Method> methods = List.of(testClass.getDeclaredMethods());
+        System.out.println(methods);
+        for(Method m : methods){
+            if(m.isAnnotationPresent(Test.class)){
+                System.out.println("Found annotation");
+                try {
+                    m.setAccessible(true);
+                    m.invoke(instance, testObj);
+                }
+                catch (InvocationTargetException e){
+                    Throwable tt = e.getCause();
+                    if(tt instanceof ValidationException tw){
+                        throw new ValidationException(tt.getMessage());
+                    }
+                }
             }
         }
     }
+
 }

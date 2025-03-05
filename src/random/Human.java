@@ -1,6 +1,13 @@
 package random;
+
+import annotations.Default;
+import annotations.Invoke;
+import lombok.Delegate;
+
 public class Human {
+    @Default(15)
     private  int age;
+    
     private  String name;
     private  byte gender;
 
@@ -12,15 +19,15 @@ public class Human {
 
     public Human() {
     }
-
+    @Invoke
     public int getAge() {
         return age;
     }
-
+    @Invoke
     public String getName() {
         return name;
     }
-
+    @Invoke
     public byte getGender() {
         return gender;
     }
